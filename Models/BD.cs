@@ -1,5 +1,7 @@
-using System.Data;
 using System;
+using System.Data;
+using System.Net;
+
 using System.Dynamic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Collections.Generic;
@@ -7,15 +9,26 @@ using System.Data.SqlClient;
 using Dapper;
 
 namespace Qatar22.Models{
-    public static class BD{
+    
+    public static class BD{        
 
-        private static string _connectionString = @"Server=A-AMI-214;DataBase=Qatar2022;Trusted_Connection=True;";
+        private static string server = Dns.GetHostName();
+        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=Qatar2022;Trusted_Connection=True;";
 
         public static void AgregarJugador(Jugador jug){
 
             string SQL = "INSERT INTO Jugadores(IdEquipo, Nombre, FechaNacimiento, Foto, EquipoActual) VALUES(@pIdEquipo, @pNombre, @pFechaNacimiento, @pFoto, @pEquipoActual)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 db.Execute(SQL, new{pIdEquipo = jug.IdEquipo, pNombre = jug.Nombre,pFechaNacimiento = jug.FechaNacimiento, pFoto = jug.Foto, pEquipoActual = jug.EquipoActual});
+            }
+
+        }
+
+        public static void AgregarEquipo(Equipo equi){
+
+            string SQL = "INSERT INTO Equipos(Nombre, Escudo, Camiseta, Continente, CopasGanadas) VALUES(@pNombre, @pEscudo, @pCamiseta, @pContinente, @pCopasGanadas)";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                db.Execute(SQL, new{pNombre = equi.Nombre, pEscudo = equi.Escudo, pCamiseta = equi.Camiseta, pContinente = equi.Continente, pCopasGanadas = equi.CopasGanadas});
             }
 
         }
