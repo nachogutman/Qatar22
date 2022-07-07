@@ -3,7 +3,7 @@ using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
 
-namespace Equipo.Models{
+namespace Qatar22.Models{
     public class Equipo{
 
         private int _idEquipo;

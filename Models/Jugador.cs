@@ -1,9 +1,9 @@
 using System;
-using System.Dinamic;
+using System.Dynamic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Collections.Generic;
 
-namespace Jugador.Models{
+namespace Qatar22.Models{
 
     public class Jugador{
 
