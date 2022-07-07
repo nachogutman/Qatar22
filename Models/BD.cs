@@ -56,11 +56,11 @@ namespace Qatar22.Models{
             return listaEquipos;
         }
 
-        public static List<Jugador> ListarJugadores(){
+        public static List<Jugador> ListarJugadores(int IdEquipo){
             List<Jugador> listaJugadores = new List<Jugador>();
-            string SQL = "SELECT * FROM Jugadores";
+            string SQL = "SELECT * FROM Jugadores WHERE IdEquipo = @pIdEquipo";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                listaJugadores = db.Query<Jugador>(SQL).ToList();
+                listaJugadores = db.Query<Jugador>(SQL, new{pIdEquipo = IdEquipo}).ToList();
             }
             return listaJugadores;
         }
