@@ -2,7 +2,43 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <div class="text-center">
+        <h1 class="display-4">Equipos</h1>
+
+        @foreach (Equipo equi in @ViewBag.Lista)
+        {
+
+            <div class="card-group">
+                <div class="card">
+                    <img class="card-img-top" src="@equi.Escudo" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@equi.Nombre</h5>
+                        
+                    </div>
+                </div>  
+            </div>
+
+            <p> @equi.Nombre </p>
+            <img src="@equi.Escudo">
+
+            
+        }
+        
+
+    </div>
+    
+
+    
+</body>
+</html>

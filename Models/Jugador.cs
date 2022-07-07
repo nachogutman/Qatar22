@@ -21,7 +21,6 @@ namespace Qatar22.Models{
             _fechaNacimiento = pfechaNacimiento;
             _foto = pfoto;
             _equipoActual = pequipoActual;
-            
         }
 
         public Jugador(){

@@ -8,14 +8,16 @@ namespace Qatar22.Models{
 
         private int _idEquipo;
         private string _nombre;
+        private string _escudo;
         private string _camiseta;
         private string _continente;
         private int _copasGanadas;
 
-        public Equipo(int pequipo, string pnombre, string pcamiseta, string pcontinente, int pcopasGanadas){
+        public Equipo(int pequipo, string pnombre, string pescudo, string pcamiseta, string pcontinente, int pcopasGanadas){
 
             _idEquipo = pequipo;
             _nombre = pnombre;
+            _escudo = pescudo;
             _camiseta = pcamiseta;
             _continente = pcontinente;
             _copasGanadas = pcopasGanadas;
@@ -26,6 +28,7 @@ namespace Qatar22.Models{
 
             _idEquipo = 0;
             _nombre = "";
+            _escudo= "";
             _camiseta = "";
             _continente = "";
             _copasGanadas = 0;
@@ -40,6 +43,11 @@ namespace Qatar22.Models{
         public string Nombre{
             get{return _nombre;}
             set{_nombre = value;}
+        }
+
+        public string Escudo{
+            get{return _escudo;}
+            set{_escudo = value;}
         }
 
         public string Camiseta{
