@@ -35,13 +35,25 @@ public class HomeController : Controller
         return View("AgregarJugador");
     }
 
+    public IActionResult AgregarEquipo(){
+        return View("AgregarEquipo");
+    }
+
     [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento,string Foto,string EquipoActual){
         Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, Foto, EquipoActual);
         BD.AgregarJugador(newJug);
         ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
         ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
         return View("DetalleEquipo");
+    }
 
+    [HttpPost] public IActionResult GuardarEquipo(string Nombre,string Escudo,string Camiseta,string Continente, int CopasGanadas){
+        Equipo newEquipo = new Equipo(Nombre, Escudo, Camiseta, Continente, CopasGanadas);
+        BD.AgregarEquipo(newEquipo);
+        ViewBag.ListaEquipos = BD.ListarEquipos();
+        int IdEquipo = ViewBag.ListaEquipos.Count() - 1;
+        ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
+        return View("DetalleEquipo");
     }
 
     IActionResult EliminarJugador(int IdJugador, int IdEquipo){

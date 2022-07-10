@@ -43,7 +43,7 @@ namespace Qatar22.Models{
         }
 
         public static Equipo VerInfoEquipo(int IdEquipo){
-            Equipo miEquipo = null;
+            Equipo miEquipo;
             string SQL = "SELECT * FROM Equipos WHERE IdEquipo = @pIdEquipo";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 miEquipo = db.QueryFirstOrDefault<Equipo>(SQL, new{pIdEquipo = IdEquipo});
@@ -52,7 +52,7 @@ namespace Qatar22.Models{
         }
 
         public static Jugador VerInfoJugador(int IdJugador){
-            Jugador miJugador = null;
+            Jugador miJugador;
             string SQL = "SELECT * FROM Jugadores WHERE IdJugador = @pIdJugador";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 miJugador = db.QueryFirstOrDefault<Jugador>(SQL, new{pIdJugador = IdJugador});
