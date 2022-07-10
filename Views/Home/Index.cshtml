@@ -14,7 +14,7 @@
 <body class="body">
 
     <div class="text-center">
-        <h1 class="display-4">Equipos</h1>
+        <h1 class="display-4 mt-5">Equipos</h1>
 
            
         @foreach (Equipo equi in @ViewBag.Lista)
@@ -23,12 +23,10 @@
             <div class="card" style="width: 18rem;">
                 <img src="@equi.Escudo" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">@equi.Nombre</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">@equi.Nombre</h5>                                     
+                    <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="btn btn-primary">Ver equipo</a>
                 </div>
-            </div>           
-                
+            </div>                           
                 
         }        
   
