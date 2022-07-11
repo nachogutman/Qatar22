@@ -12,14 +12,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="body">
-        
-    <h1 class="mt-5">@ViewBag.DetalleEquipo.Nombre</h1>
-    <img src="@ViewBag.DetalleEquipo.Escudo" alt=""class="mt-3 w-25">
-    <img src="@ViewBag.DetalleEquipo.Camiseta" alt="" class="mt-3 w-25">
-    <h4 class="mt-3">Continente: @ViewBag.DetalleEquipo.Continente</h4>  
-    <h4 class="mt-3">Copas ganados: @ViewBag.DetalleEquipo.CopasGanadas</h4>
-    <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-primary mt-3">Crear jugador</a>
 
+    <div class="flex-container">
+
+    <div class="flex-item">
+        
+    <h1 class="mt-4">@ViewBag.DetalleEquipo.Nombre</h1>
+    <img src="@ViewBag.DetalleEquipo.Escudo" alt=""class="mt-4 w-25">
+    <img src="@ViewBag.DetalleEquipo.Camiseta" alt="" class="mt-3 ml-4 w-25">
+    <h4 class="mt-4">Continente: @ViewBag.DetalleEquipo.Continente</h4>  
+    <h4 class="mt-4">Copas ganados: @ViewBag.DetalleEquipo.CopasGanadas</h4>
+    <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-primary mt-3">Agregar jugador +</a>
+    
+    
+    </div>
+
+    <div class="flex-item">
+
+    <table class="table mt-5">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">JUGADOR</th>
+        <th scope="col">Número Camiseta</th>
+        <th scope="col">Detalle Jugador</th>
+        <th scope="col">Borrar Jugador</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Jugador jug in @ViewBag.ListarJugadores)
+        {
+            <tr>
+            <th scope="row">@jug.Nombre</th>
+            <td>1</td>
+            <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})'>Información</a></td>     
+            <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>   
+            </tr>               
+        }
+             
+    </tbody>
+    </table>
+
+    </div>
+
+    </div>
     
 </body>
 </html>

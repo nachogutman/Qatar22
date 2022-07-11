@@ -1,16 +1,19 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Qatar22.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Qatar22.Controllers;
 
 public class HomeController : Controller
 {
+    private IWebHostEnvironment Environment;
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
+    public HomeController(IWebHostEnvironment _environment)
+    {        
+        Environment = _environment;
     }
 
     public IActionResult Index()
@@ -25,7 +28,7 @@ public class HomeController : Controller
         return View("DetalleEquipo");
     }
 
-    public IActionResult VerDetalleJugador(int IdJugador){
+    public IActionResult VerDetalleJugador(int IdJugador){       
         ViewBag.DetalleJugador = BD.VerInfoJugador(IdJugador);
         return View("DetalleJugador");
     }
@@ -39,8 +42,18 @@ public class HomeController : Controller
         return View("AgregarEquipo");
     }
 
-    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento,string Foto,string EquipoActual){
-        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, Foto, EquipoActual);
+    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento,IFormFile Foto,string EquipoActual){
+
+        string wwwRootLocal = "";
+        if(Foto.Length > 0)
+        {
+            wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Foto.FileName;
+            using(var stream = System.IO.File.Create(wwwRootLocal)){
+                Foto.CopyToAsync(stream);
+            }
+        }
+
+        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, wwwRootLocal, EquipoActual);
         BD.AgregarJugador(newJug);
         ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
         ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
@@ -56,7 +69,7 @@ public class HomeController : Controller
         return View("DetalleEquipo");
     }
 
-    IActionResult EliminarJugador(int IdJugador, int IdEquipo){
+    public IActionResult EliminarJugador(int IdJugador, int IdEquipo){
         BD.EliminarJugador(IdJugador);
         ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
         ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);

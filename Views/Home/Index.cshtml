@@ -14,13 +14,13 @@
 <body class="body">
 
     <div class="text-center">
-        <h1 class="display-4 mt-5">Equipos</h1>
 
+        <h1 class="mt-5">Equipos</h1>
            
         @foreach (Equipo equi in @ViewBag.Lista)
         {
 
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 20rem;">
                 <img src="@equi.Escudo" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@equi.Nombre</h5>                                     
@@ -29,6 +29,8 @@
             </div>                           
                 
         }        
+
+        <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-primary mt-3">Agregar equipo +</a>
   
 
     </div>

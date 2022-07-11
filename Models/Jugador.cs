@@ -9,7 +9,7 @@ namespace Qatar22.Models{
 
         private int _idJugador;        
         private int _idEquipo;
-        private string  _nombre;
+        private string _nombre;
         private DateTime _fechaNacimiento;
         private string _foto;
         private string _equipoActual;

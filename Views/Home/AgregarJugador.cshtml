@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "AgregarJugador";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <h1 class="mt-5">Crear jugador</h1>
+
+    <form class="mt-4" method="post" action='@Url.Action("GuardarJugador", "Home")' enctype="multipart/form-data">
+
+        <input class="form-control" type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
+      
+        <div class="form-group">
+            <label>Nombre del jugador:</label>
+            <input type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador...">
+            
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de nacimiento:</label>
+            <input type="date" class="form-control" name="FechaNacimiento">
+            
+        </div>        
+
+        <div class="form-group">
+            <label>Equipo Actual:</label>
+            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador...">
+            
+        </div>      
+
+        <div class="form-group">
+            <label>Foto del jugador</label>
+            <input type="file" class="form-control-file" name="Foto">
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-4">Crear jugador</button>
+    </form>
+
+        
+</body>
+</html>
