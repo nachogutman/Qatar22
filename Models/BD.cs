@@ -1,7 +1,6 @@
 using System;
 using System.Data;
 using System.Net;
-
 using System.Dynamic;
 using Microsoft.VisualBasic.CompilerServices;
 using System.Collections.Generic;
@@ -34,12 +33,13 @@ namespace Qatar22.Models{
         }
 
         public static void EliminarJugador(int IdJugador){
-
+                       
+            Jugador miJugador = VerInfoJugador(IdJugador);     
+            File.Delete(Directory.GetCurrentDirectory() + miJugador.Foto);
             string SQL = "DELETE FROM Jugadores WHERE IdJugador = @pIdJugador";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 db.Execute(SQL, new{pIdJugador = IdJugador});
             }
-
         }
 
         public static Equipo VerInfoEquipo(int IdEquipo){

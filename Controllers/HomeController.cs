@@ -28,7 +28,7 @@ public class HomeController : Controller
         return View("DetalleEquipo");
     }
 
-    public IActionResult VerDetalleJugador(int IdJugador){       
+    public IActionResult VerDetalleJugador(int IdJugador){              
         ViewBag.DetalleJugador = BD.VerInfoJugador(IdJugador);
         return View("DetalleJugador");
     }
@@ -42,31 +42,42 @@ public class HomeController : Controller
         return View("AgregarEquipo");
     }
 
-    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento,IFormFile Foto,string EquipoActual){
-
-        string wwwRootLocal = "";
+    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento, IFormFile Foto,string EquipoActual){
+        
         if(Foto.Length > 0)
         {
-            wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Foto.FileName;
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Foto.FileName;
             using(var stream = System.IO.File.Create(wwwRootLocal)){
                 Foto.CopyToAsync(stream);
             }
         }
 
-        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, wwwRootLocal, EquipoActual);
+        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, ("/" + Foto.FileName), EquipoActual);
         BD.AgregarJugador(newJug);
-        ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
-        ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
-        return View("DetalleEquipo");
+        return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
     }
 
-    [HttpPost] public IActionResult GuardarEquipo(string Nombre,string Escudo,string Camiseta,string Continente, int CopasGanadas){
-        Equipo newEquipo = new Equipo(Nombre, Escudo, Camiseta, Continente, CopasGanadas);
-        BD.AgregarEquipo(newEquipo);
-        ViewBag.ListaEquipos = BD.ListarEquipos();
-        int IdEquipo = ViewBag.ListaEquipos.Count() - 1;
-        ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
-        return View("DetalleEquipo");
+    [HttpPost] public IActionResult GuardarEquipo(string Nombre, IFormFile Escudo, IFormFile Camiseta, string Continente, int CopasGanadas){
+        
+        if(Escudo.Length > 0)
+        {
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Escudo.FileName;
+            using(var stream = System.IO.File.Create(wwwRootLocal)){
+                Escudo.CopyToAsync(stream);
+            }
+        }
+
+        if(Camiseta.Length > 0)
+        {
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Camiseta.FileName;
+            using(var stream = System.IO.File.Create(wwwRootLocal)){
+                Camiseta.CopyToAsync(stream);
+            }
+        }       
+        
+        Equipo newEquipo = new Equipo(Nombre, ("/" + Escudo.FileName), ("/" + Camiseta.FileName), Continente, CopasGanadas);
+        BD.AgregarEquipo(newEquipo);                
+        return RedirectToAction("Index","Home");
     }
 
     public IActionResult EliminarJugador(int IdJugador, int IdEquipo){

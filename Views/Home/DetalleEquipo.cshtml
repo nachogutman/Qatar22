@@ -22,7 +22,7 @@
     <img src="@ViewBag.DetalleEquipo.Camiseta" alt="" class="mt-3 ml-4 w-25">
     <h4 class="mt-4">Continente: @ViewBag.DetalleEquipo.Continente</h4>  
     <h4 class="mt-4">Copas ganados: @ViewBag.DetalleEquipo.CopasGanadas</h4>
-    <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-primary mt-3">Agregar jugador +</a>
+    <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-primary mt-4">Agregar jugador +</a>
     
     
     </div>
@@ -35,7 +35,7 @@
         <th scope="col">JUGADOR</th>
         <th scope="col">Número Camiseta</th>
         <th scope="col">Detalle Jugador</th>
-        <th scope="col">Borrar Jugador</th>
+        <th scope="col"> </th>
         
         </tr>
     </thead>
