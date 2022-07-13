@@ -14,14 +14,17 @@ namespace Qatar22.Models{
         private string _foto;
         private string _equipoActual;
 
+        private int _numCamiseta;
 
-        public Jugador(int pidEquipo, string pnombre, DateTime pfechaNacimiento, string pfoto, string pequipoActual){
+
+        public Jugador(int pidEquipo, string pnombre, DateTime pfechaNacimiento, string pfoto, string pequipoActual, int pnumCamiseta){
             
             _idEquipo = pidEquipo;
             _nombre = pnombre;
             _fechaNacimiento = pfechaNacimiento;
             _foto = pfoto;
             _equipoActual = pequipoActual;
+            _numCamiseta = pnumCamiseta;
         }
 
         public Jugador(){
@@ -30,8 +33,14 @@ namespace Qatar22.Models{
             _fechaNacimiento = new DateTime(1, 1, 1);
             _foto = "";
             _equipoActual = "";
+            _numCamiseta = 99;
         }
 
+
+        public int NumCamiseta{
+            get{return _numCamiseta;}
+            set{_numCamiseta = value;}
+        }
         public int IdJugador{
             get {return _idJugador;}
             set{_idJugador = value;}
