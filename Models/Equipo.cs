@@ -14,7 +14,7 @@ namespace Qatar22.Models{
         private int _copasGanadas;
 
         public Equipo(string pnombre, string pescudo, string pcamiseta, string pcontinente, int pcopasGanadas){
-
+            
             _nombre = pnombre;
             _escudo = pescudo;
             _camiseta = pcamiseta;
@@ -35,6 +35,7 @@ namespace Qatar22.Models{
 
         public int IdEquipo{
             get{return _idEquipo;}
+            set{_idEquipo = value;}
         }
 
         public string Nombre{

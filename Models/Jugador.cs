@@ -16,6 +16,7 @@ namespace Qatar22.Models{
 
 
         public Jugador(int pidEquipo, string pnombre, DateTime pfechaNacimiento, string pfoto, string pequipoActual){
+            
             _idEquipo = pidEquipo;
             _nombre = pnombre;
             _fechaNacimiento = pfechaNacimiento;
@@ -24,7 +25,6 @@ namespace Qatar22.Models{
         }
 
         public Jugador(){
-            _idJugador = 0;
             _idEquipo = 0;
             _nombre = "";
             _fechaNacimiento = new DateTime(1, 1, 1);
