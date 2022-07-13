@@ -24,6 +24,7 @@
                     <th scope="col">Número Camiseta</th>
                     <th scope="col">Detalle Jugador</th>
                     <th scope="col"> </th>
+                    <th scope="col"> </th>
                     
                     </tr>
                 </thead>
@@ -32,10 +33,11 @@
                     @foreach (Jugador jug in @ViewBag.ListarJugadores)
                     {
                         <tr>
-                        <th scope="row">@jug.Nombre</th>
-                        <td>@jug.NumCamiseta</td>
-                        <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})'>Información</a></td>     
-                        <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>   
+                            <th scope="row">@jug.Nombre</th>
+                            <td>@jug.NumCamiseta</td>
+                            <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})'>Información</a></td>     
+                            <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>
+                            <td><a href='@Url.Action("EditarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-info">Editar jugador</a></td>   
                         </tr>               
                     }
                         
