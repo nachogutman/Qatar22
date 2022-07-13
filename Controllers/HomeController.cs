@@ -93,6 +93,27 @@ public class HomeController : Controller
         return View("DetalleEquipo");
     }
 
+    public IActionResult EditarJugador(int IdJugador, int IdEquipo){
+        ViewBag.IdEquipo = IdEquipo;
+        ViewBag.IdEdit = IdJugador;
+        return View("EditarJugador");
+    }
+
+    public IActionResult GuardarEdit(int IdJugador, int IdEquipo, string Nombre, DateTime FechaNacimiento, IFormFile Foto, string EquipoActual, int NumCamiseta){
+
+        if(Foto.Length > 0)
+        {
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\jugadores\" + Foto.FileName;
+            using(var stream = System.IO.File.Create(wwwRootLocal)){
+                Foto.CopyToAsync(stream);
+            }
+        }
+
+        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento,  ("/" + Foto.FileName), EquipoActual,  NumCamiseta);
+        BD.EditarJugador(newJug, IdJugador);
+        return RedirectToAction("VerDetalleJugador","Home", new {IdJugador=IdJugador});
+
+    }
     public IActionResult Privacy()
     {
         return View();

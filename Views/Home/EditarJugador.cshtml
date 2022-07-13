@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "EditarJugador";
+}
+
+
+
+<h1 class="mt-5">Editar jugador</h1>
+
+    <form class="mt-4" method="post" action='@Url.Action("GuardarEdit", "Home")' enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Id Equipo, sino fue transferido ponga el id @ViewBag.IdEquipo </label>
+            <input type="number" class="form-control" name="IdEquipo" placeholder="Id del equipo...">
+        </div>
+
+        <div class="form-group">
+            <label>Nombre del jugador:</label>
+            <input type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador...">
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de nacimiento:</label>
+            <input type="date" class="form-control" name="FechaNacimiento">
+            
+        </div>        
+
+        <div class="form-group">
+            <label>Equipo Actual:</label>
+            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador...">
+        </div>      
+
+        <div class="form-group">
+            <label>Camiseta:</label>
+            <input type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador...">
+        </div>  
+
+        <div class="form-group">
+            <label>Foto del jugador</label>
+            <input type="file" class="form-control-file" name="Foto">
+        </div>
+
+        <input type="hidden" name="IdJugador" value="@ViewBag.IdEdit">
+        
+        <button type="submit" class="btn btn-primary mt-4">Confirmar</button>
+    </form>
+
+        
