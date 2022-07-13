@@ -3,37 +3,32 @@
 }
 
 
-    <div class="text-center">
+    
 
+    <div class="container"> 
+        <h1 class="mt-5 mb-5">Equipos</h1>
+
+        <div class="row mb-4">
+            @foreach (Equipo equi in @ViewBag.Lista)
+            {
+                <div class="col-sm">
+                    <div class="card text-center rounded" style="width: 20rem; background:#9e0c06;">
+                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})'><img src="@equi.Escudo" class="card-img-top p-4" width="300px" height="300px" alt="..."></a>                            
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">@equi.Nombre</h5>                                     
+                            <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="btn btn-outline-light">Ver equipo</a>
+                        </div>
+                    </div> 
+                </div>                              
+            }        
+        </div>
         
 
-        <h1 class="mt-5">Equipos</h1>
+        <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-primary mt-5 mb-5">Agregar equipo +</a>
         
-        <div class="container"> 
+    </div> 
 
-            <div class="row">
-
-                @foreach (Equipo equi in @ViewBag.Lista)
-                {
-                    <div class="col-sm">
-                        <div class="card" style="width: 20rem;">
-                            <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})'><img src="@equi.Escudo" class="card-img-top" width="300px" height="300px" alt="..."></a>
-                            
-                            <div class="card-body">
-                                <h5 class="card-title">@equi.Nombre</h5>                                     
-                                <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="btn btn-primary">Ver equipo</a>
-                            </div>
-                        </div> 
-                    </div>                          
-                        
-                }        
-
-            </div>
-        </div> 
-        <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-primary mt-3 mb-5">Agregar equipo +</a>
   
-
-    </div>
     
 
     

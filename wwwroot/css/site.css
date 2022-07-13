@@ -1,5 +1,30 @@
 html {
-  font-size: 14px;
+  font-size: 14px;  
+  
+}
+
+body{
+  background-color: #820000;
+}
+
+footer{
+  background-color: rgba(0, 0, 0, 0.651) ;
+}
+
+h1{
+  color: white;
+}
+
+h4{
+  color: white;
+}
+
+p{
+  color: white;
+}
+
+.blanco{
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -25,3 +50,6 @@ body {
   flex: 1;
 }
 
+header{
+  background-color: #820000;
+}
