@@ -16,9 +16,9 @@ namespace Qatar22.Models{
 
         public static void AgregarJugador(Jugador jug){
 
-            string SQL = "INSERT INTO Jugadores(IdEquipo, Nombre, FechaNacimiento, Foto, EquipoActual) VALUES(@pIdEquipo, @pNombre, @pFechaNacimiento, @pFoto, @pEquipoActual)";
+            string SQL = "INSERT INTO Jugadores(IdEquipo, Nombre, FechaNacimiento, Foto, EquipoActual, NumCamiseta) VALUES(@pIdEquipo, @pNombre, @pFechaNacimiento, @pFoto, @pEquipoActual, @pNumCamiseta)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new{pIdEquipo = jug.IdEquipo, pNombre = jug.Nombre,pFechaNacimiento = jug.FechaNacimiento, pFoto = jug.Foto, pEquipoActual = jug.EquipoActual});
+                db.Execute(SQL, new{pIdEquipo = jug.IdEquipo, pNombre = jug.Nombre,pFechaNacimiento = jug.FechaNacimiento, pFoto = jug.Foto, pEquipoActual = jug.EquipoActual, pNumCamiseta = jug.NumCamiseta});
             }
 
         }

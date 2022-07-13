@@ -42,17 +42,17 @@ public class HomeController : Controller
         return View("AgregarEquipo");
     }
 
-    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento, IFormFile Foto,string EquipoActual){
+    [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento, IFormFile Foto,string EquipoActual, int NumCamiseta){
         
         if(Foto.Length > 0)
         {
-            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Foto.FileName;
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\jugadores\" + Foto.FileName;
             using(var stream = System.IO.File.Create(wwwRootLocal)){
                 Foto.CopyToAsync(stream);
             }
         }
 
-        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, ("/" + Foto.FileName), EquipoActual);
+        Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, ("/" + Foto.FileName), EquipoActual, NumCamiseta);
         BD.AgregarJugador(newJug);
         return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
     }
