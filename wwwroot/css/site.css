@@ -4,11 +4,12 @@ html {
 }
 
 body{
-  background-color: #820000;
+  background-color: #70102C;
+  color: white;
 }
 
 footer{
-  background-color: rgba(0, 0, 0, 0.651) ;
+  background-color: #6d102a;
 }
 
 h1{
@@ -50,13 +51,11 @@ body {
   flex: 1;
 }
 
-<<<<<<< HEAD
 header{
-  background-color: #820000;
-}
-=======
-.marron{
-  background-color: #820000;
+  background-color: #70102C;
 }
 
->>>>>>> 121cc9d7c79d300194571661cd124460c15c6085
+.boton{
+  background-color: white;  
+  color: #70102C;
+}

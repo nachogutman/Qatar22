@@ -2,39 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <h1 class="mt-5 mb-5">Equipos</h1>
-
-<<<<<<< HEAD
-    
-
     <div class="container"> 
-        <h1 class="mt-5 mb-5">Equipos</h1>
+        <h1 class="mt-5 mb-5 text-center">Equipos</h1>
 
         <div class="row mb-4">
             @foreach (Equipo equi in @ViewBag.Lista)
             {
-                <div class="col-sm">
-                    <div class="card text-center rounded" style="width: 20rem; background:#9e0c06;">
-                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})'><img src="@equi.Escudo" class="card-img-top p-4" width="300px" height="300px" alt="..."></a>                            
+                <div class="col-sm d-flex mb-3 justify-content-center">
+                    <div class="card text-center shadow" style="width: 20rem; background:rgba(255,255,255, 0.05); border-radius:5%">
+                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="flex-item"><img src="@equi.Escudo" class="card-img-top p-4" width="100%" height="auto" alt="..."></a>                            
                         <div class="card-body">
-                            <h5 class="card-title mb-3">@equi.Nombre</h5>                                     
+                            <h5 class="card-title mb-3 text-light">@equi.Nombre</h5>                                     
                             <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="btn btn-outline-light">Ver equipo</a>
                         </div>
                     </div> 
                 </div>                              
-            }        
+            } 
+
+            <center>
+                <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-light mt-5 mb-5 w-25" style="color: #70102C;">Agregar equipo +</a>       
+            </center>
+
+
         </div>
         
-
-        <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-primary mt-5 mb-5">Agregar equipo +</a>
-        
     </div> 
-=======
-    <div class="text-center">        
-
-                
-        <div class="container"> 
->>>>>>> 121cc9d7c79d300194571661cd124460c15c6085
 
   
     

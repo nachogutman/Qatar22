@@ -10,41 +10,43 @@
 
         <input class="form-control" type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
       
-        <div class="form-group">
-            <label>Nombre del equipo:</label>
-            <input type="text" class="form-control" name="Nombre" placeholder="Nombre del equipo...">
+        <div class="form-group mb-3">
+            <label class="h5">Nombre del equipo:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="Nombre" placeholder="Nombre del equipo..." autocomplete="off" required>
             
         </div>
 
-        <div class="form-group">
-            <label>Escudo:</label>
-            <input type="file" class="form-control-file" name="Escudo">
+        <div class="form-group mb-3">
+            <label class="h5">Escudo:</label>
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Escudo">
             
         </div>        
 
-        <div class="form-group">
-            <label>Camiseta:</label>
-            <input type="file" class="form-control-file" name="Camiseta">
+        <div class="form-group mb-3">
+            <label class="h5">Camiseta:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Camiseta" autocomplete="off" required>
             
         </div>      
 
-        <div class="form-group">
-            <label>Continente:</label>
-            <select class="form-select" name="Continente">
-                <option value="Africa">Africa</option>
-                <option value="America">America</option>
-                <option value="Europa">Europa</option>
-                <option value="Asia">Asia</option>
+        <div class="form-group mb-3">
+            <label class="h5">Continente:</label>
+            <select style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color: white;" class="form-select opacity-75 shadow" name="Continente" placeholder="Continente..." autocomplete="off" required>
+                <option value="" disabled selected hidden>Continente...</option>
+                <option value="Africa" class="bg-secondary">Africa</option>
+                <option value="America" class="bg-secondary">America</option>
+                <option value="Europa" class="bg-secondary">Europa</option>
+                <option value="Asia" class="bg-secondary">Asia</option>
+                <option value="Oceania" class="bg-secondary">Oceania</option>
             </select>
             
         </div>
 
-        <div class="form-group">
-            <label>Copas ganadas:</label>
-            <input type="number" class="form-control" name="CopasGanadas" placeholder="Copas ganadas...">
+        <div class="form-group mb-3">
+            <label class="h5">Copas ganadas:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="number" class="form-control shadow" name="CopasGanadas" placeholder="Copas ganadas..." autocomplete="off" required>
         </div>
         
-        <button type="submit" class="btn btn-primary mt-4">Crear equipo</button>
+        <button type="submit" class="btn boton mt-4">Crear equipo</button>
     </form>
 
     <br><br><br><br>

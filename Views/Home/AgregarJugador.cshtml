@@ -2,39 +2,37 @@
     ViewData["Title"] = "AgregarJugador";
 }
 
-
-
 <h1 class="mt-5">Crear jugador</h1>
 
     <form class="mt-4" method="post" action='@Url.Action("GuardarJugador", "Home")' enctype="multipart/form-data">
 
         <input class="form-control" type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
       
-        <div class="form-group">
-            <label>Nombre del jugador:</label>
-            <input type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador...">
+        <div class="form-group mb-3">
+            <label class="h5">Nombre del jugador:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
             
         </div>
 
-        <div class="form-group">
-            <label>Fecha de nacimiento:</label>
-            <input type="date" class="form-control" name="FechaNacimiento">
+        <div class="form-group mb-3">
+            <label class="h5">Fecha de nacimiento:</label>
+            <input type="date" class="form-control" name="FechaNacimiento" autocomplete="off" required>
             
         </div>        
 
-        <div class="form-group">
-            <label>Equipo Actual:</label>
-            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador...">
+        <div class="form-group mb-3">
+            <label class="h5">Equipo Actual:</label>
+            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
         </div>      
 
-        <div class="form-group">
-            <label>Camiseta:</label>
-            <input type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador...">
+        <div class="form-group mb-3">
+            <label class="h5">Camiseta:</label>
+            <input type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
         </div>  
 
-        <div class="form-group">
-            <label>Foto del jugador</label>
-            <input type="file" class="form-control-file" name="Foto">
+        <div class="form-group mb-3">
+            <label class="h5">Foto del jugador</label>
+            <input type="file" class="form-control-file" name="Foto" autocomplete="off" required>
         </div>
         
         <button type="submit" class="btn btn-primary mt-4">Crear jugador</button>
