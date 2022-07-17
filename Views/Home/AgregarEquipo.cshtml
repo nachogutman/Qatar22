@@ -10,25 +10,25 @@
 
         <input class="form-control" type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
       
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Nombre del equipo:</label>
             <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="Nombre" placeholder="Nombre del equipo..." autocomplete="off" required>
             
         </div>
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Escudo:</label>
-            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Escudo">
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Escudo" autocomplete="off" required>
             
         </div>        
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Camiseta:</label>
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Camiseta" autocomplete="off" required>
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Camiseta" autocomplete="off" required>
             
         </div>      
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Continente:</label>
             <select style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color: white;" class="form-select opacity-75 shadow" name="Continente" placeholder="Continente..." autocomplete="off" required>
                 <option value="" disabled selected hidden>Continente...</option>
@@ -41,12 +41,12 @@
             
         </div>
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Copas ganadas:</label>
             <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="number" class="form-control shadow" name="CopasGanadas" placeholder="Copas ganadas..." autocomplete="off" required>
         </div>
         
-        <button type="submit" class="btn boton mt-4">Crear equipo</button>
+        <button type="submit" class="btn btn-dark mt-4">Crear equipo</button>
     </form>
 
     <br><br><br><br>

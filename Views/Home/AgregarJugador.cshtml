@@ -8,34 +8,34 @@
 
         <input class="form-control" type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
       
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Nombre del jugador:</label>
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
             
         </div>
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Fecha de nacimiento:</label>
-            <input type="date" class="form-control" name="FechaNacimiento" autocomplete="off" required>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:grey;" type="date" class="form-control opacity-75" name="FechaNacimiento" autocomplete="off" required>
             
         </div>        
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Equipo Actual:</label>
-            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
         </div>      
 
-        <div class="form-group mb-3">
-            <label class="h5">Camiseta:</label>
-            <input type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
+        <div class="form-group mb-4">
+            <label class="h5">Número de camiseta:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;"  type="number" class="form-control opacity-75" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
         </div>  
 
-        <div class="form-group mb-3">
+        <div class="form-group mb-4">
             <label class="h5">Foto del jugador</label>
-            <input type="file" class="form-control-file" name="Foto" autocomplete="off" required>
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Foto" autocomplete="off" required>
         </div>
         
-        <button type="submit" class="btn btn-primary mt-4">Crear jugador</button>
+        <button type="submit" class="btn btn-dark mt-4">Crear jugador</button>
     </form>
 
-        
+    <br><br><br><br>
