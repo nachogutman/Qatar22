@@ -79,9 +79,9 @@ namespace Qatar22.Models{
         }
 
         public static void EditarJugador(Jugador jug, int IdJugador){
-            string SQL = "UPDATE Jugadores SET IdEquipo = @pIdEquipo, Nombre = @pNombre, FechaNacimiento = @pFechaNacimiento, Foto = @pFoto, EquipoActual = @pEquipoActual WHERE IdJugador = @pIdJugador";
+            string SQL = "UPDATE Jugadores SET IdEquipo = @pIdEquipo, Nombre = @pNombre, FechaNacimiento = @pFechaNacimiento, Foto = @pFoto, EquipoActual = @pEquipoActual, NumCamiseta = @pNumCamiseta  WHERE IdJugador = @pIdJugador";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new {pIdEquipo = jug.IdEquipo, pNombre = jug.Nombre, pFechaNacimiento = jug.FechaNacimiento, pFoto = jug.Foto, pEquipoActual = jug.EquipoActual, pIdJugador = IdJugador});
+                db.Execute(SQL, new {pIdEquipo = jug.IdEquipo, pNombre = jug.Nombre, pFechaNacimiento = jug.FechaNacimiento, pFoto = jug.Foto, pEquipoActual = jug.EquipoActual, pNumCamiseta = jug.NumCamiseta, pIdJugador = IdJugador});
             }
         }
 
