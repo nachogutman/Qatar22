@@ -63,11 +63,11 @@ public class HomeController : Controller
         return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
     }
 
-    [HttpPost] public IActionResult GuardarEquipo(string Nombre, IFormFile Escudo, IFormFile Camiseta, string Continente, int CopasGanadas){
+    [HttpPost] public IActionResult GuardarEquipo(string Nombre, IFormFile Escudo, IFormFile Camiseta, string Continente, int CopasGanadas, string Video){
         
         if(Escudo.Length > 0)
         {
-            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\" + Escudo.FileName;
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\equipos\" + Escudo.FileName;
             using(var stream = System.IO.File.Create(wwwRootLocal)){
                 Escudo.CopyToAsync(stream);
             }
@@ -81,7 +81,7 @@ public class HomeController : Controller
             }
         }       
         
-        Equipo newEquipo = new Equipo(Nombre, ("/" + Escudo.FileName), ("/" + Camiseta.FileName), Continente, CopasGanadas);
+        Equipo newEquipo = new Equipo(Nombre, ("/" + Escudo.FileName), ("/" + Camiseta.FileName), Continente, CopasGanadas, Video);
         BD.AgregarEquipo(newEquipo);                
         return RedirectToAction("Index","Home");
     }

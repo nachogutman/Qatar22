@@ -25,9 +25,9 @@ namespace Qatar22.Models{
 
         public static void AgregarEquipo(Equipo equi){
 
-            string SQL = "INSERT INTO Equipos(Nombre, Escudo, Camiseta, Continente, CopasGanadas) VALUES(@pNombre, @pEscudo, @pCamiseta, @pContinente, @pCopasGanadas)";
+            string SQL = "INSERT INTO Equipos(Nombre, Escudo, Camiseta, Continente, CopasGanadas, Video) VALUES(@pNombre, @pEscudo, @pCamiseta, @pContinente, @pCopasGanadas, @pVideo)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new{pNombre = equi.Nombre, pEscudo = equi.Escudo, pCamiseta = equi.Camiseta, pContinente = equi.Continente, pCopasGanadas = equi.CopasGanadas});
+                db.Execute(SQL, new{pNombre = equi.Nombre, pEscudo = equi.Escudo, pCamiseta = equi.Camiseta, pContinente = equi.Continente, pCopasGanadas = equi.CopasGanadas, pVideo = equi.Video});
             }
 
         }
