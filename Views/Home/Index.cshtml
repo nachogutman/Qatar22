@@ -9,8 +9,8 @@
             @foreach (Equipo equi in @ViewBag.Lista)
             {
                 <div class="col-sm d-flex mb-3 justify-content-center">
-                    <div class="card text-center shadow" style="width: 20rem; background:rgba(255,255,255, 0.05); border-radius:5%">
-                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="flex-item"><img src="@equi.Escudo" class="card-img-top p-4" width="100%" height="auto" alt="..."></a>                            
+                    <div class="card text-center shadow" style="width: 330px; height:450px; background:rgba(255,255,255, 0.05); border-radius:5%">
+                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="flex-item"><img src="@equi.Escudo" class="card-img-top p-4" width="100%" height="330px" alt="..." style="object-fit: cover;"></a>                            
                         <div class="card-body">
                             <h5 class="card-title mb-3 text-light">@equi.Nombre</h5>                                     
                             <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo})' class="btn btn-outline-light">Ver equipo</a>
