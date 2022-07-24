@@ -4,18 +4,18 @@
 
     <div class="flex-container">
 
-        <div class="flex-item">
+        <div class="flex-item mb-5">
             
             <h1 class="mt-4">@ViewBag.DetalleEquipo.Nombre</h1>
             <img src="/equipos/@ViewBag.DetalleEquipo.Escudo" alt=""class="mt-4 w-25">
             <img src="@ViewBag.DetalleEquipo.Camiseta" alt="" class="mt-3 ml-4 w-25">
             <h4 class="mt-4">Continente: @ViewBag.DetalleEquipo.Continente</h4>  
-            <h4 class="mt-4">Copas ganados: @ViewBag.DetalleEquipo.CopasGanadas</h4>
+            <h4 class="mt-4">Copas ganadas: @ViewBag.DetalleEquipo.CopasGanadas</h4>
             <iframe width="560" height="315" class="mt-4" src="@ViewBag.DetalleEquipo.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             
             <br>
 
-            <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn boton mt-4 shadow">Agregar jugador +</a>
+            
             
         </div>
 
@@ -36,10 +36,11 @@
 
                     @foreach (Jugador jug in @ViewBag.ListarJugadores)
                     {
-                        <tr>
+                        <tr class="filaJugador">
+                            
                             <th scope="row">@jug.Nombre</th>
                             <td>@jug.NumCamiseta</td>
-                            <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})' class="text-secondary">Información</a></td>     
+                            <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})' class="text-primary linkDetalleJugador">Información</a></td>     
                             <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>
                             <td><a href='@Url.Action("EditarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-warning">Editar jugador</a></td>   
                         </tr>               
@@ -47,6 +48,8 @@
                         
                 </tbody>
             </table>
+
+            <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn boton mt-2 mb-5 shadow" style="float: left;">Agregar jugador +</a>
 
         </div>
 

@@ -4,13 +4,12 @@
 
 
     <h1 class="mt-5">@ViewBag.DetalleJugador.Nombre</h1>
-    <img src="/jugadores/@ViewBag.DetalleJugador.Foto" alt="" class="mt-4 w-25">
+    <img src="/jugadores/@ViewBag.DetalleJugador.Foto" alt="" class="mt-4" width="35%" height="auto">
     <h5 class="mt-4">Fecha de nacimiento: @ViewBag.DetalleJugador.FechaNacimiento.ToShortDateString().</h5>
     <h5 class="mt-4">Equipo: @ViewBag.DetalleJugador.EquipoActual. </h5>       
 
-    <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=@ViewBag.DetalleJugador.IdEquipo})' class="btn btn-secondary mt-4 mb-5"> <- Volver Atrás</a>
-    <br><br><br><br>
-
+    <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=@ViewBag.DetalleJugador.IdEquipo})' class="btn btn-dark mt-4 mb-5"> Volver atrás</a>
+   
 
 
 

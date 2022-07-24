@@ -8,40 +8,39 @@
 
     <form class="mt-4" method="post" action='@Url.Action("GuardarEdit", "Home")' enctype="multipart/form-data">
 
-        <div class="form-group">
-            <label>Id Equipo, sino se nacionalizo ponga el id @ViewBag.IdEquipo </label>
-            <input type="number" class="form-control" name="IdEquipo" placeholder="Id del equipo...">
+        <input type="hidden" name="IdEquipo" value="@ViewBag.IdEquipo">
+       
+
+        <div class="form-group mb-4">
+            <label class="h5">Nombre del jugador:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
         </div>
 
-        <div class="form-group">
-            <label>Nombre del jugador:</label>
-            <input type="text" class="form-control" name="Nombre" placeholder="Nombre del jugador...">
-        </div>
-
-        <div class="form-group">
-            <label>Fecha de nacimiento:</label>
-            <input type="date" class="form-control" name="FechaNacimiento">
+        <div class="form-group mb-4">
+            <label class="h5">Fecha de nacimiento:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:grey;" type="date" class="form-control opacity-75" name="FechaNacimiento" autocomplete="off" required>
             
         </div>        
 
-        <div class="form-group">
-            <label>Equipo Actual:</label>
-            <input type="text" class="form-control" name="EquipoActual" placeholder="Equipo del jugador...">
+        <div class="form-group mb-4">
+            <label class="h5" >Equipo Actual:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
         </div>      
 
-        <div class="form-group">
-            <label>Camiseta:</label>
-            <input type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador...">
+        <div class="form-group mb-4">
+            <label class="h5">Camiseta:</label>
+            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="number" class="form-control" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
         </div>  
 
-        <div class="form-group">
-            <label>Foto del jugador</label>
-            <input type="file" class="form-control-file" name="Foto">
+        <div class="form-group mb-4">
+            <label class="h5">Foto del jugador</label>
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Foto" autocomplete="off" required>
         </div>
 
         <input type="hidden" name="IdJugador" value="@ViewBag.IdEdit">
         
-        <button type="submit" class="btn btn-primary mt-4">Confirmar</button>
+        <button type="submit" class="btn btn-dark mt-4 mb-5">Confirmar</button>
     </form>
+
 
         

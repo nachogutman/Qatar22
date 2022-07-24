@@ -89,8 +89,8 @@ public class HomeController : Controller
     public IActionResult EliminarJugador(int IdJugador, int IdEquipo){
         BD.EliminarJugador(IdJugador);
         ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
-        ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
-        return View("DetalleEquipo");
+        ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);        
+        return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
     }
 
     public IActionResult EditarJugador(int IdJugador, int IdEquipo){
