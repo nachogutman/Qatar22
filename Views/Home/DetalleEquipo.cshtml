@@ -1,11 +1,6 @@
 @{
     ViewData["Title"] = "DetalleEquipo";
 }
-<script>
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
-</script>
 
 <body>
     <div class="flex-container">
@@ -46,10 +41,7 @@
                             
                             <th scope="row">@jug.Nombre</th>
                             <td>@jug.NumCamiseta</td>
-                            <!--
-                            <td><button id=@jug.IdJugador class="text-primary linkDetalleJugador">Información</button></td>
-                            -->
-                            <td><a href='@Url.Action("VerDetalleEquipo","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="bt" data-toggle="modal" data-target="#exampleModalCenter">Informacion Jugador</a></td>     
+                            <td><a href='@Url.Action("VerDetalleEquipo","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn" data-toggle="modal" data-target="#exampleModalCenter">Informacion Jugador</a></td>     
                             <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>
                             <td><a href='@Url.Action("EditarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-warning">Editar jugador</a></td>   
                         </tr>               
@@ -63,29 +55,17 @@
         </div>
 
         @if(@ViewBag.DetalleJugador != null){
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                Launch demo modal
-            </button>
             
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
+            <div id="myModal" class="modal">
+
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1 class="mt-5 text-dark">@ViewBag.DetalleJugador.Nombre</h1>
+                    <img src="/jugadores/@ViewBag.DetalleJugador.Foto" alt="" class="mt-4" width="35%" height="auto">
+                    <h5 class="mt-4">Fecha de nacimiento: @ViewBag.DetalleJugador.FechaNacimiento.ToShortDateString().</h5>
+                    <h5 class="mt-4">Equipo: @ViewBag.DetalleJugador.EquipoActual. </h5>   
                 </div>
+
             </div>
         }
         
@@ -104,7 +84,40 @@
 
         </script>
         -->
-
     </div>
+
+    @if(@ViewBag.DetalleJugador != null){
+
+    <script type ="text/javascript">
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        function openModal() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        openModal();
+
+    </script>
+
+    }
 </body>
     
