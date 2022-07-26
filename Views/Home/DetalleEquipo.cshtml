@@ -1,7 +1,13 @@
 @{
     ViewData["Title"] = "DetalleEquipo";
 }
+<script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+</script>
 
+<body>
     <div class="flex-container">
 
         <div class="flex-item mb-5">
@@ -40,7 +46,10 @@
                             
                             <th scope="row">@jug.Nombre</th>
                             <td>@jug.NumCamiseta</td>
-                            <td><a href='@Url.Action("VerDetalleJugador","Home", new {IdJugador = jug.IdJugador})' class="text-primary linkDetalleJugador">Información</a></td>     
+                            <!--
+                            <td><button id=@jug.IdJugador class="text-primary linkDetalleJugador">Información</button></td>
+                            -->
+                            <td><a href='@Url.Action("VerDetalleEquipo","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="bt" data-toggle="modal" data-target="#exampleModalCenter">Informacion Jugador</a></td>     
                             <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>
                             <td><a href='@Url.Action("EditarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-warning">Editar jugador</a></td>   
                         </tr>               
@@ -53,5 +62,49 @@
 
         </div>
 
+        @if(@ViewBag.DetalleJugador != null){
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Launch demo modal
+            </button>
+            
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        }
+        
+        <!--
+         <script>
+            
+            
+            ESTE CODIGO TAN LINDO NO LO TERMINAMOS USANDO PERO FUE UN GRAN LOGRO 
+            const botones = document.querySelectorAll(`button`);
+            botones.forEach( (e) => {
+                if(e.id) e.addEventListener('click', () => {
+                    
+                });
+            });
+
+
+        </script>
+        -->
+
     </div>
+</body>
     

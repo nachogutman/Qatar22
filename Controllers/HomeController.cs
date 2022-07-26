@@ -28,9 +28,12 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult VerDetalleEquipo(int IdEquipo){
+    public IActionResult VerDetalleEquipo(int IdEquipo, int IdJugador){
         ViewBag.DetalleEquipo = BD.VerInfoEquipo(IdEquipo);
         ViewBag.ListarJugadores = BD.ListarJugadores(IdEquipo);
+        if(IdJugador != 0){
+            ViewBag.DetalleJugador = BD.VerInfoJugador(IdJugador);
+        }
         return View("DetalleEquipo");
     }
 
