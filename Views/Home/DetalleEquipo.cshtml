@@ -41,7 +41,7 @@
                             
                             <th scope="row">@jug.Nombre</th>
                             <td>@jug.NumCamiseta</td>
-                            <td><a href='@Url.Action("VerDetalleEquipo","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn" data-toggle="modal" data-target="#exampleModalCenter">Informacion Jugador</a></td>     
+                            <td><a href='@Url.Action("VerDetalleEquipo","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn" data-toggle="modal" data-target="#exampleModalCenter" style="color:blue;">Informacion Jugador</a></td>     
                             <td><a href='@Url.Action("EliminarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-danger">Borrar jugador</a></td>
                             <td><a href='@Url.Action("EditarJugador","Home", new {IdJugador=@jug.IdJugador, IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn btn-warning">Editar jugador</a></td>   
                         </tr>               
@@ -50,7 +50,7 @@
                 </tbody>
             </table>
 
-            <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn boton mt-2 mb-5 shadow" style="float: left;">Agregar jugador +</a>
+            <a href='@Url.Action("AgregarJugador","Home", new {IdEquipo=@ViewBag.DetalleEquipo.IdEquipo})' class="btn boton mt-2 mb-5 shadow" style="float: left;" target="_blank">Agregar jugador +</a>
 
         </div>
 
@@ -58,12 +58,14 @@
             
             <div id="myModal" class="modal">
 
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h1 class="mt-5 text-dark">@ViewBag.DetalleJugador.Nombre</h1>
-                    <img src="/jugadores/@ViewBag.DetalleJugador.Foto" alt="" class="mt-4" width="35%" height="auto">
+                <div class="modal-content sombra text-center">
+                    <span class="close">&times;</span>                    
+                    
+                    <h1 class="mt-2" style="color: #70102C;">@ViewBag.DetalleJugador.Nombre</h1>
+                    <img src="/jugadores/@ViewBag.DetalleJugador.Foto" alt="" class="mt-3 shadow-lg" width="35%" height="auto" style="margin-left: 32%;">
                     <h5 class="mt-4">Fecha de nacimiento: @ViewBag.DetalleJugador.FechaNacimiento.ToShortDateString().</h5>
-                    <h5 class="mt-4">Equipo: @ViewBag.DetalleJugador.EquipoActual. </h5>   
+                    <h5 class="mt-1 mb-3">Equipo: @ViewBag.DetalleJugador.EquipoActual. </h5>   
+                    
                 </div>
 
             </div>

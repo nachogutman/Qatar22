@@ -103,16 +103,18 @@ header{
   margin-top: 7%;
   background-color: #fefefe;
   border: 1px solid #888;
+  border-radius: 18px;
   padding: .7%;
-  width: 60%; 
-  color: black;
+  width: 50%; 
+  color: #4a0d1e;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  margin-left: 96%;
   float: right;
-  font-size: 28px;
+  color: #aaa;  
+  font-size: 35px;
   font-weight: bold;
   display: block;
   width: 3%;
