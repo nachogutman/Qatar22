@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Linq.Expressions;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Qatar22.Models;
 using System.IO;
@@ -44,6 +45,7 @@ public class HomeController : Controller
 
     public IActionResult AgregarJugador(int IdEquipo){
         ViewBag.IdEquipo = IdEquipo;
+        ViewBag.ListaJugadores = BD.ListarJugadores(IdEquipo);
         return View("AgregarJugador");
     }
 
@@ -52,7 +54,18 @@ public class HomeController : Controller
     }
 
     [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento, IFormFile Foto,string EquipoActual, int NumCamiseta){
-        
+                
+        List<Jugador> listaJugadores = new List<Jugador>();
+        listaJugadores = BD.ListarJugadores(IdEquipo);
+        bool numeroRepetido = false;
+        foreach(Jugador jug in listaJugadores){
+            if(jug.NumCamiseta == NumCamiseta){
+                numeroRepetido = true;
+                ViewBag.numeroRepetido = numeroRepetido;
+                return RedirectToAction("AgregarJugador","Home", new {IdEquipo=IdEquipo});
+            }
+        }
+
         if(Foto.Length > 0)
         {
             string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\jugadores\" + Foto.FileName;
@@ -64,6 +77,7 @@ public class HomeController : Controller
         Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento, ("/" + Foto.FileName), EquipoActual, NumCamiseta);
         BD.AgregarJugador(newJug);
         return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
+        
     }
 
     [HttpPost] public IActionResult GuardarEquipo(string Nombre, IFormFile Escudo, IFormFile Camiseta, string Continente, int CopasGanadas, string Video){

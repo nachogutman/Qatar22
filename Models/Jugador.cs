@@ -16,7 +16,6 @@ namespace Qatar22.Models{
 
         private int _numCamiseta;
 
-
         public Jugador(int pidEquipo, string pnombre, DateTime pfechaNacimiento, string pfoto, string pequipoActual, int pnumCamiseta){
             
             _idEquipo = pidEquipo;
