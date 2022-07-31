@@ -43,9 +43,9 @@ public class HomeController : Controller
         return View("DetalleJugador");
     }
 
-    public IActionResult AgregarJugador(int IdEquipo){
+    public IActionResult AgregarJugador(int IdEquipo){                       
         ViewBag.IdEquipo = IdEquipo;
-        ViewBag.ListaJugadores = BD.ListarJugadores(IdEquipo);
+        //ViewBag.ListaJugadores = BD.ListarJugadores(IdEquipo);//no me acuerdo pq esta esto aca
         return View("AgregarJugador");
     }
 
@@ -56,15 +56,14 @@ public class HomeController : Controller
     [HttpPost] public IActionResult GuardarJugador(int IdEquipo,string Nombre,DateTime FechaNacimiento, IFormFile Foto,string EquipoActual, int NumCamiseta){
                 
         List<Jugador> listaJugadores = new List<Jugador>();
-        listaJugadores = BD.ListarJugadores(IdEquipo);
-        bool numeroRepetido = false;
+        listaJugadores = BD.ListarJugadores(IdEquipo);            
         foreach(Jugador jug in listaJugadores){
-            if(jug.NumCamiseta == NumCamiseta){
-                numeroRepetido = true;
-                ViewBag.numeroRepetido = numeroRepetido;
-                return RedirectToAction("AgregarJugador","Home", new {IdEquipo=IdEquipo});
+            if(jug.NumCamiseta == NumCamiseta){       
+                ViewBag.CamisetaRepetida = "true";
+                ViewBag.IdEquipo = IdEquipo;        
+                return View("AgregarJugador");
             }
-        }
+        }           
 
         if(Foto.Length > 0)
         {
