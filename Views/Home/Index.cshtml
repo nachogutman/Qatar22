@@ -1,9 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
+}   
+
+    <button id="boton" class="btn btn-light mt-1 mt-5 w-25" style="color: #70102C; display: block;"> Filtrar por... </button>
+    
+    <div id="modal" class="modal">
+        <div class="modal-contento sombra text-center">
+            <span class="cruz">&times;</span>                    
+            
+            <label class="h1 text-dark">Continentes</label>
+            <div class="form-group continentes d-flex flex-column">
+                <div class="continentes "> Africa<input type="checkbox" value="Africa" class="m-2 listCont" name="Africa"> </div>
+                <hr>
+                <div class="continentes "> America<input type="checkbox" value="America" class="m-2 listCont" name="America"> </div>
+                <hr>                
+                <div class="continentes "> Europa<input type="checkbox" value="Europa" class="m-2 listCont" name="Europa"> </div>
+                <hr>
+                <div class="continentes "> Asia<input type="checkbox" value="Asia" class="m-2 listCont" name="Asia"> </div>
+                <hr>
+                <div class="continentes "> Oceania<input type="checkbox" value="Oceania" class="m-2 listCont" data-key="Oceania"> </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container mt-5"> 
-        
         <div class="row mb-4">
             @foreach (Equipo equi in @ViewBag.Lista)
             {
@@ -17,17 +37,47 @@
                     </div> 
                 </div>                              
             } 
-
-            <center>
-                <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-light mt-1 mb-5 w-25" style="color: #70102C;" target="_blank">Agregar equipo +</a>       
-            </center>
-
-
         </div>
-        
+                        
     </div> 
-
-  
     
+    <script type ="text/javascript">
+            var modal = document.getElementById("modal");
+                
+            var boton = document.getElementById("boton");
+
+            var cerrar = document.getElementsByClassName("cruz")[0];
+                
+            boton.onclick = function abrirModal() {
+                modal.style.display = "block";
+            }
+                
+            cerrar.onclick = function() {
+                modal.style.display = "none";
+                checkear();
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                    checkear();
+                }
+            }
+            
+            function checkear(){
+                var listInput = document.querySelectorAll(".listCont");
+                listInput.forEach(input => mostrarContinentes(input));
+
+                function mostrarContinentes(continente){
+                
+                    if(continente.checked){
+                        
+                    }
+                }
+            }
+
+        </script>
+
+        <a href='@Url.Action("AgregarEquipo","Home")' class="btn btn-light m-auto mt-1 mb-5 w-25" style="color: #70102C; display: block;" target="_blank">Agregar equipo +</a>       
 
     

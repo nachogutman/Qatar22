@@ -100,7 +100,16 @@ header{
   color: #4a0d1e;
 }
 
-.close {
+.modal-contento {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  padding: .7%;
+  width: 30%; 
+  height: 100%;
+  color: #4a0d1e;
+}
+
+.cruz {
   margin-left: 96%;
   float: right;
   color: #aaa;  
@@ -110,9 +119,36 @@ header{
   width: 3%;
 }
 
-.close:hover,
-.close:focus {
+.cruz:hover,
+.cruz:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.forms{
+  background:rgba(255,255,255, 0.05); 
+  border-color:rgba(255,255,255, 0.05); 
+  color:white;
+}
+
+.continentes{
+  color: #70102C;
+  text-align: left;
+  margin: 5%;
+  margin-left: 5%;
+  font-size: 25px;
+}
+
+input[type='checkbox'] { 
+  height: 20px; 
+  width: 20px; 
+}
+
+
+
+@media (max-width: 768px) {
+
+    .detalleequipo {flex-wrap: wrap;}
+  
 }

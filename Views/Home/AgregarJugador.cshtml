@@ -10,25 +10,25 @@
       
         <div class="form-group mb-4">
             <label class="h5">Nombre del jugador:</label>
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
+            <input type="text" class="form-control opacity-75 forms" name="Nombre" placeholder="Nombre del jugador..." autocomplete="off" required>
             
         </div>
 
         <div class="form-group mb-4">
             <label class="h5">Fecha de nacimiento:</label>
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:grey;" type="date" class="form-control opacity-75" name="FechaNacimiento" autocomplete="off" required>
+            <input style="color:grey;" type="date" class="form-control opacity-75 forms" name="FechaNacimiento" autocomplete="off" required>
             
         </div>        
 
         <div class="form-group mb-4">
             <label class="h5">Equipo Actual:</label>
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;" type="text" class="form-control opacity-75" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
+            <input type="text" class="form-control opacity-75 forms" name="EquipoActual" placeholder="Equipo del jugador..." autocomplete="off" required>
         </div>      
 
         <div class="form-group mb-4">
             <label class="h5">Número de camiseta: </label>
                
-            <input style="background:rgba(255,255,255, 0.05); border-color:rgba(255,255,255, 0.05); color:white;"  type="number" class="form-control opacity-75" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
+            <input  type="number" class="form-control opacity-75 forms" name="NumCamiseta" placeholder="Numero de camiseta del jugador..." autocomplete="off" required>
             @if (@ViewBag.CamisetaRepetida == "true")
             {
                 <h5 class="amarillo mt-1">Ya existe un jugador con esa camiseta</h5>                
@@ -38,7 +38,7 @@
 
         <div class="form-group mb-4">
             <label class="h5">Foto del jugador</label>
-            <input type="file" class="form-control-file d-flex justify-content-end opacity-75" name="Foto" autocomplete="off" required>
+            <input type="file" class="form-control-file d-flex justify-content-end opacity-75 forms" name="Foto" autocomplete="off" required>
         </div>
         
         <button type="submit" class="btn btn-dark mt-4 mb-5">Crear jugador</button>

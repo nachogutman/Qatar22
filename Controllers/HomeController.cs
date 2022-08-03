@@ -17,15 +17,14 @@ public class HomeController : Controller
         Environment = _environment;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(bool Africa, bool America, bool Europa, bool Asia, bool Oceania)
     {
         ViewBag.Lista = BD.ListarEquipos();
-        return View();
-    }
-
-    public IActionResult Continentes()
-    {
-        ViewBag.Lista = BD.ListarEquipos();
+        ViewBag.Africa = Africa;
+        ViewBag.America = America;
+        ViewBag.Europa = Europa;
+        ViewBag.Asia = Asia;
+        ViewBag.Oceania = Oceania;
         return View();
     }
 
