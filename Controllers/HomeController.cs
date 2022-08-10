@@ -126,7 +126,7 @@ public class HomeController : Controller
 
         Jugador newJug = new Jugador(IdEquipo, Nombre, FechaNacimiento,  ("/" + Foto.FileName), EquipoActual,  NumCamiseta);
         BD.EditarJugador(newJug, IdJugador);
-        return RedirectToAction("VerDetalleJugador","Home", new {IdJugador=IdJugador});
+        return RedirectToAction("VerDetalleEquipo","Home", new {IdEquipo=IdEquipo});
 
     }
     public IActionResult Privacy()
