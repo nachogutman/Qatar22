@@ -12,7 +12,7 @@ namespace Qatar22.Models{
     public static class BD{        
 
         private static string server = Dns.GetHostName();
-        private static string _connectionString = @$"Server={server};DataBase=Qatar2022;Trusted_Connection=True;";        
+        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=Qatar2022;Trusted_Connection=True;";        
 
         public static void AgregarJugador(Jugador jug){
 

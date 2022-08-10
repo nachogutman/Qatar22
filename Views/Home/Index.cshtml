@@ -10,36 +10,24 @@
             
             <label class="h1 text-dark">Continentes</label>
             <div class="form-group continentes d-flex flex-column">
-                <div class="continentes "> Africa<input type="checkbox" value="Africa" class="m-2 listCont" name="Africa"> </div>
+                <div class="continentes "> Africa<input type="checkbox" value="Africa" class="m-2 listCont" name="Africa" checked="true"> </div>
                 <hr>
-                <div class="continentes "> America<input type="checkbox" value="America" class="m-2 listCont" name="America"> </div>
+                <div class="continentes "> America<input type="checkbox" value="America" class="m-2 listCont" name="America" checked="true"> </div>
                 <hr>                
-                <div class="continentes "> Europa<input type="checkbox" value="Europa" class="m-2 listCont" name="Europa"> </div>
+                <div class="continentes "> Europa<input type="checkbox" value="Europa" class="m-2 listCont" name="Europa" checked="true"> </div>
                 <hr>
-                <div class="continentes "> Asia<input type="checkbox" value="Asia" class="m-2 listCont" name="Asia"> </div>
+                <div class="continentes "> Asia<input type="checkbox" value="Asia" class="m-2 listCont" name="Asia" checked="true"> </div>
                 <hr>
-                <div class="continentes "> Oceania<input type="checkbox" value="Oceania" class="m-2 listCont" data-key="Oceania"> </div>
+                <div class="continentes "> Oceania<input type="checkbox" value="Oceania" class="m-2 listCont" data-key="Oceania" checked="true"> </div>
             </div>
         </div>
     </div>
 
-    <div class="container mt-5"> 
-        <div class="row mb-4">
-            @foreach (Equipo equi in @ViewBag.Lista)
-            {
-                <div class="col-sm d-flex mb-3 justify-content-center">
-                    <div class="contenedor card text-center sombra mb-4" style="width: 330px; height:450px; background:rgba(255,255,255, 0.05); border-radius:5%">
-                        <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo, IdJugador=0})' class="flex-item"><img src="/equipos/@equi.Escudo" class="card-img-top p-4 imagen" width="100%" height="330px" alt="..." style="object-fit: cover;"></a>                            
-                        <div class="card-body">
-                            <h5 class="card-title mb-3 text-light">@equi.Nombre</h5>                                     
-                            <a href='@Url.Action("VerDetalleEquipo","Home", new {IdEquipo=equi.IdEquipo, IdJugador=0})' class="btn btn-outline-light">Ver equipo</a>
-                        </div>
-                    </div> 
-                </div>                              
-            } 
-        </div>
-                        
-    </div> 
+<div class="container mt-5"> 
+    <div class="row mb-4">
+        <div class="col-sm d-flex mb-3 justify-content-center contenedorCards"></div>
+    </div>
+</div>
     
     <script type ="text/javascript">
             var modal = document.getElementById("modal");
@@ -63,16 +51,46 @@
                     checkear();
                 }
             }
-            
+
+            checkear();
+
             function checkear(){
+                const contenedor = document.querySelector(".contenedorCards");
+                contenedor.innerHTML = '';
+                var array = @Html.Raw(Json.Serialize(@ViewBag.Lista));
+                var jScriptArray = [];
+                for(var i = 0; i < array.length; i++) {
+                    jScriptArray.push(array[i]);
+                    console.log(array[i]);
+                }
+
                 var listInput = document.querySelectorAll(".listCont");
                 listInput.forEach(input => mostrarContinentes(input));
 
                 function mostrarContinentes(continente){
-                
-                    if(continente.checked){
-                        
-                    }
+
+                    for(var i = 0; i < jScriptArray.length; i++){
+
+                        if(continente.checked && continente.value === jScriptArray[i].continente){
+
+
+                            const linkDetalle = document.createElement('div');
+                            linkDetalle.innerHTML = `
+                                
+                                    <div class="contenedor card text-center sombra mb-4 m-3" style="width: 330px; height:450px; background:rgba(255,255,255, 0.05); border-radius:5%">
+                                        <a href=https://localhost:7252/Home/VerDetalleEquipo?IdEquipo=${jScriptArray[i].idEquipo}&IdJugador=0' class="flex-item"><img src="/equipos/${jScriptArray[i].escudo}" class="card-img-top p-4 imagen" width="100%" height="330px" alt="..." style="object-fit: cover;"></a>                            
+                                        <div class="card-body">
+                                            <h5 class="card-title mb-3 text-light">${jScriptArray[i].nombre}</h5>                                     
+                                            <a href=https://localhost:7252/Home/VerDetalleEquipo?IdEquipo=${jScriptArray[i].idEquipo}&IdJugador=0' class="btn btn-outline-light">Ver equipo</a>
+                                        </div>
+                                    </div>    
+
+                            `;
+                            contenedor.appendChild(linkDetalle);
+
+                        }
+
+                    }   
                 }
             }
 
