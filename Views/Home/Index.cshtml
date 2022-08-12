@@ -24,9 +24,8 @@
         </div>
     </div>
 
-<div class="container mt-5"> 
-    <div class="row mb-4">
-        <div class="col-sm d-flex mb-3 justify-content-center contenedorCards"></div>
+<div class="equipos mt-5"> 
+    <div class="row mb-4 contenedorCards">
     </div>
 </div>
     
@@ -75,19 +74,19 @@
                         if(continente.checked && continente.value === jScriptArray[i].continente){
 
 
-                            const linkDetalle = document.createElement('div');
-                            linkDetalle.innerHTML = `
+                            contenedor.innerHTML = contenedor.innerHTML +  `
                                 
-                                    <div class="contenedor card text-center sombra mb-4 m-3" style="width: 330px; height:450px; background:rgba(255,255,255, 0.05); border-radius:5%">
+                                <div class="col-sm d-flex mb-3 justify-content-center">
+                                    <div class="contenedor card text-center sombra mb-4" style="width: 330px; height:450px; background:rgba(255,255,255, 0.05); border-radius:5%">
                                         <a href=https://localhost:7252/Home/VerDetalleEquipo?IdEquipo=${jScriptArray[i].idEquipo}&IdJugador=0' class="flex-item"><img src="/equipos/${jScriptArray[i].escudo}" class="card-img-top p-4 imagen" width="100%" height="330px" alt="..." style="object-fit: cover;"></a>                            
                                         <div class="card-body">
                                             <h5 class="card-title mb-3 text-light">${jScriptArray[i].nombre}</h5>                                     
                                             <a href=https://localhost:7252/Home/VerDetalleEquipo?IdEquipo=${jScriptArray[i].idEquipo}&IdJugador=0' class="btn btn-outline-light">Ver equipo</a>
                                         </div>
                                     </div>    
+                                </div>
 
                             `;
-                            contenedor.appendChild(linkDetalle);
 
                         }
 

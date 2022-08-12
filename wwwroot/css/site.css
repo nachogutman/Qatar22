@@ -61,6 +61,9 @@ header{
   color: #70102C;
 }
 
+.imagen{
+  
+}
 .contenedor:hover .imagen {-webkit-transform:scale(1.3);transform:scale(1.3);}
 .contenedor {overflow:hidden;}
 
@@ -145,10 +148,17 @@ input[type='checkbox'] {
   width: 20px; 
 }
 
+.equipos{
+  width: 100%;
+}
 
+.container{
+  max-width: 1600px;
+}
 
 @media (max-width: 768px) {
 
     .detalleequipo {flex-wrap: wrap;}
   
 }
+
